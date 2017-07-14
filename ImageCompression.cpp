@@ -24,7 +24,24 @@ using namespace std;
 class ImageCompression {
 public:
 	string isPossible(vector <string> image, int k) {
-		
+		for(int i = 0 ; i+k-1<image.size() ; i+=k){
+			for(int j = 0 ; j+k-1 < image[0].size() ; j+=k){
+				char temp='a';
+				for(int m = i ; m <=i+k-1 ; m++){
+					for(int n = j ; n <=j+k-1 ; n++){
+						if(temp=='a'){
+							temp=image[m][n];
+						}
+						else{
+							if(image[m][n]!=temp){
+								return "Impossible";
+							}
+						}
+					}
+				}
+			}
+		}
+		return "Possible";
 	}
 };
 
